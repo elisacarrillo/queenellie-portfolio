@@ -1,65 +1,134 @@
 import Image from "next/image";
+import Link from "next/link";
+import Hero from "@/components/Hero";
+import CaseCard from "@/components/CaseCard";
+import { cases } from "@/content/cases";
+
+const metrics = [
+  { value: "375M+", label: "Users Reached" },
+  { value: "+1.89%", label: "Friend Story View Time" },
+  { value: "$20K", label: "Raised as Founder" },
+];
+
+const bio = [
+  "At Snap, I scoped and built what bothered me.",
+  "At Amazon, I built the tool to allow PMs to stop guessing.",
+  "As a Founder, I discovered that the best features come from living the problem.",
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      {/* Hero */}
+      <Hero />
+
+      {/* Bio + Photo */}
+      <section className="bg-white px-4 pb-16 sm:px-8" style={{ paddingTop: "3vh", paddingBottom: "4vh" }}>
+        <div className="max-w-6xl mx-auto">
+          {/* Row 1: Name + Metrics on same line */}
+          <div className="flex items-center justify-between gap-10 mb-16">
+            {/* Left: name */}
+            <h2 className="font-syne font-extrabold text-[2.2rem] leading-tight flex-shrink-0">
+              Elisa Carrillo
+            </h2>
+
+            {/* Right: metrics */}
+            <div className="flex gap-12 flex-shrink-0 mr-6">
+              {metrics.map((m, i) => (
+                <div key={i} className="text-right">
+                  <div className="font-syne font-extrabold text-[1.8rem] leading-tight tracking-tight">
+                    {m.value}
+                  </div>
+                  <div className="text-[13px] text-[#555] mt-1">{m.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Handle */}
+          <p className="text-[#f0407a] text-[13px] font-medium mb-8" style={{ paddingTop: "3vh"}}>
+            @<span className="block">queenellie</span>
           </p>
+
+          {/* Row 2: Bio + Photo */}
+            <div className="flex flex-col md:flex-row gap-10 md:gap-16">
+              {/* Left: Bio */}
+              <div className="flex-1 space-y-1 min-w-0">
+                {bio.map((line, i) => (
+                  <p key={i} className="text-[14px] text-[#555] leading-[1.6]">
+                    {line}
+                  </p>
+                ))}
+              </div>
+
+            {/* Right: Photo */}
+            <div className="flex-1 min-w-0">
+              <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-[#fde8f0]">
+                <Image
+                  src="/photo.jpg"
+                  alt="Elisa Carrillo"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                  preload
+                />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </section>
+
+      {/* Case Studies */}
+      <section className="min-w-0 px-4 py-4 sm:px-8 max-w-6xl mx-auto">
+        <div className="mb-0 flex min-w-0 flex-wrap items-baseline justify-between gap-4 border-b border-[#eee] py-8">
+          <div className="min-w-0">
+            <p className="text-[10px] uppercase tracking-widest text-[#bbb] mb-1">
+              Selected Work
+            </p>
+            <h2 className="font-syne font-extrabold text-[1.8rem] tracking-tight">
+              The Work
+            </h2>
+          </div>
+          <span
+            className="shrink-0 font-syne font-light italic leading-none text-[#e8e8e8]"
+            style={{ fontSize: "clamp(2rem, 10vw, 3rem)" }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            {String(cases.length).padStart(2, "0")}
+          </span>
+        </div>
+
+        {cases.map((c, i) => (
+          <CaseCard key={c.slug} c={c} index={i} />
+        ))}
+
+        <div className="py-8 text-center">
+          <Link
+            href="/work"
+            className="text-[12px] uppercase tracking-widest text-[#aaa] hover:text-[#f0407a] transition-colors"
           >
-            Documentation
+            View all work →
+          </Link>
+        </div>
+      </section>
+
+      {/* CTA strip */}
+      <section className="bg-[#f0407a] px-4 py-16 text-white sm:px-8">
+        <div className="mx-auto flex min-w-0 max-w-6xl flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+          <h2
+            className="min-w-0 font-syne font-extrabold leading-tight tracking-tight"
+            style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
+          >
+            Let's build something<br />
+            people actually use.
+          </h2>
+          <a
+            href="mailto:elisacarrillo873@gmail.com"
+            className="w-fit shrink-0 bg-white text-[#f0407a] font-syne font-bold px-8 py-4 rounded-md text-[14px] hover:bg-[#111] hover:text-white transition-colors whitespace-nowrap"
+          >
+            lets talk :)
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }

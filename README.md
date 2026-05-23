@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Queenellie Portfolio
 
-## Getting Started
+Next.js 14 · TypeScript · Tailwind CSS · Deployed on Vercel
 
-First, run the development server:
+## Quick start
 
 ```bash
+# 1. Install dependencies
+npm install
+
+# 2. Run dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# 3. Open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Adding your photo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Drop your photo into `/public/photo.jpg`, then in `app/page.tsx` replace:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```tsx
+<div className="absolute inset-0 flex items-center justify-center text-[#ddd] text-[13px]">
+  Add photo.jpg to /public
+</div>
+```
 
-## Learn More
+with:
 
-To learn more about Next.js, take a look at the following resources:
+```tsx
+<Image src="/photo.jpg" alt="Elisa Carrillo" fill className="object-cover" />
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Adding / editing case studies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All case study content lives in `content/cases.ts`. Each case is a TypeScript object:
 
-## Deploy on Vercel
+```ts
+{
+  slug: "my-new-case",        // URL: /work/my-new-case
+  title: "My New Case Study",
+  company: "Company Name",
+  year: "2025",
+  tags: ["Tag1", "Tag2"],
+  impact: "+42%",
+  impactLabel: "Metric name",
+  summary: "One paragraph shown on cards and in SEO.",
+  body: `
+## Section heading
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Your full case study content goes here.
+Write in markdown-ish format — ## for headings, blank lines between paragraphs.
+  `.trim(),
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy to Vercel
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel --prod
+```
+
+Or connect your GitHub repo to Vercel — it auto-deploys on every push to main.
+
+## Customizing colors
+
+The pink is `#f0407a`. To change it, search and replace across the project or update:
+
+- `tailwind.config.ts` → `colors.pink.DEFAULT`
+- `app/globals.css` → `--pink`
