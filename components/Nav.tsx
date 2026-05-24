@@ -21,26 +21,23 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* Inner pages sit on light bg — keep bar solid so white labels stay readable */
   const solidBar = scrolled || pathname !== "/";
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-600 ${
-        solidBar
-          ? "bg-pink backdrop-blur-md shadow-sm"
-          : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 shadow-sm ${
+        solidBar ? "nav-solid bg-[#f0407a]" : "bg-white"
       }`}
     >
       <nav
-        className="site-nav-inner relative mx-auto w-full max-w-6xl py-16 sm:py-25 sm:pl-6 "
+        className="site-nav-inner relative mx-auto w-full max-w-6xl"
         aria-label="Main navigation"
       >
         <Link
           href="/"
-          className="site-nav-logo block min-w-0 max-w-full truncate text-left text-[13px] font-normal text-white no-underline transition-colors hover:no-underline sm:text-[15px]"
+          className="site-nav-logo block min-w-0 max-w-full truncate text-left no-underline transition-colors hover:no-underline text-[15px] sm:text-[17px]"
         >
-          Portfolio
+          Elisa Carrillo
         </Link>
 
         <ul className="site-nav-links list-none">
@@ -48,7 +45,7 @@ export default function Nav() {
             <li key={link.href} className="shrink-0">
               <Link
                 href={link.href}
-                className="whitespace-nowrap text-[13px] font-extrabold text-white transition-colors hover:opacity-100 opacity-90 sm:text-[15px]"
+                className="whitespace-nowrap text-[13px] transition-colors hover:opacity-100 opacity-80 sm:text-[14px]"
               >
                 {link.shortLabel ? (
                   <>
@@ -64,7 +61,11 @@ export default function Nav() {
           <li className="shrink-0">
             <Link
               href="mailto:elisacarrillo873@gmail.com"
-              className="inline-flex items-center whitespace-nowrap rounded-md bg-[#f0407a] px-3 py-2 text-[13px] font-extrabold text-white transition-colors hover:bg-white hover:text-[#111] sm:px-4 sm:py-2.5 sm:text-[15px]"
+              className={`inline-flex items-center whitespace-nowrap rounded-md px-3 py-2 text-[13px] font-bold transition-colors sm:px-4 sm:py-2.5 sm:text-[14px] ${
+                solidBar
+                  ? "bg-white text-[#111] hover:bg-[#111] hover:text-white"
+                  : "bg-[#111] text-white hover:bg-[#f0407a] hover:text-white"
+              }`}
             >
               lets talk :)
             </Link>

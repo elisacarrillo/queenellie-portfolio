@@ -4,12 +4,6 @@ import Hero from "@/components/Hero";
 import CaseCard from "@/components/CaseCard";
 import { cases } from "@/content/cases";
 
-const metrics = [
-  { value: "375M+", label: "Users Reached" },
-  { value: "+1.89%", label: "Friend Story View Time" },
-  { value: "$20K", label: "Raised as Founder" },
-];
-
 const bio = [
   "At Snap, I scoped and built what bothered me.",
   "At Amazon, I built the tool to allow PMs to stop guessing.",
@@ -22,44 +16,78 @@ export default function Home() {
       {/* Hero */}
       <Hero />
 
+      {/* Geometric doodle strip */}
+      <div
+        className="w-full overflow-hidden"
+        style={{ height: "72px", backgroundColor: "#111" }}
+        aria-hidden="true"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="100%"
+          height="72"
+          style={{ display: "block" }}
+        >
+          <defs>
+            <pattern
+              id="geo-doodle"
+              x="0"
+              y="0"
+              width="240"
+              height="72"
+              patternUnits="userSpaceOnUse"
+            >
+              <rect width="240" height="72" fill="#111" />
+              {/* Left-pointing solid triangle */}
+              <polygon points="22,9 22,63 58,36" fill="white" />
+              {/* Spiral */}
+              <path
+                d="M121,36 C121,28 113,20 105,20 C97,20 89,28 89,36 C89,44 97,52 105,52 C117,52 125,42 125,30 C125,19 115,11 103,11"
+                fill="none"
+                stroke="white"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+              {/* Left-pointing solid triangle */}
+              <polygon points="152,9 152,63 188,36" fill="white" />
+              {/* Zigzag */}
+              <path
+                d="M200,18 L212,54 L224,18 L236,54"
+                fill="none"
+                stroke="white"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="72" fill="url(#geo-doodle)" />
+        </svg>
+      </div>
+
       {/* Bio + Photo */}
-      <section className="bg-white px-4 pb-16 sm:px-8" style={{ paddingTop: "3vh", paddingBottom: "4vh" }}>
+      <section className="bg-white px-4 sm:px-8" style={{ paddingTop: "4vh", paddingBottom: "4vh" }}>
         <div className="max-w-6xl mx-auto">
-          {/* Row 1: Name + Metrics on same line */}
-          <div className="flex items-center justify-between gap-10 mb-16">
-            {/* Left: name */}
-            <h2 className="font-syne font-extrabold text-[2.2rem] leading-tight flex-shrink-0">
+          {/* Name */}
+          <div className="mb-10">
+            <h2 className="font-syne font-extrabold text-[2.2rem] leading-tight">
               Elisa Carrillo
             </h2>
-
-            {/* Right: metrics */}
-            <div className="flex gap-12 flex-shrink-0 mr-6">
-              {metrics.map((m, i) => (
-                <div key={i} className="text-right">
-                  <div className="font-syne font-extrabold text-[1.8rem] leading-tight tracking-tight">
-                    {m.value}
-                  </div>
-                  <div className="text-[13px] text-[#555] mt-1">{m.label}</div>
-                </div>
-              ))}
-            </div>
+            <p className="text-[#f0407a] text-[13px] font-medium mt-2">
+              @queenellie
+            </p>
           </div>
 
-          {/* Handle */}
-          <p className="text-[#f0407a] text-[13px] font-medium mb-8" style={{ paddingTop: "3vh"}}>
-            @<span className="block">queenellie</span>
-          </p>
-
-          {/* Row 2: Bio + Photo */}
-            <div className="flex flex-col md:flex-row gap-10 md:gap-16">
-              {/* Left: Bio */}
-              <div className="flex-1 space-y-1 min-w-0">
-                {bio.map((line, i) => (
-                  <p key={i} className="text-[14px] text-[#555] leading-[1.6]">
-                    {line}
-                  </p>
-                ))}
-              </div>
+          {/* Bio + Photo */}
+          <div className="flex flex-col md:flex-row gap-10 md:gap-16">
+            {/* Left: Bio */}
+            <div className="flex-1 space-y-1 min-w-0">
+              {bio.map((line, i) => (
+                <p key={i} className="text-[14px] text-[#555] leading-[1.6]">
+                  {line}
+                </p>
+              ))}
+            </div>
 
             {/* Right: Photo */}
             <div className="flex-1 min-w-0">

@@ -87,23 +87,35 @@ h1, h2, h3, h4 {
   content: none;
 }
 
+/* Light nav (homepage, top) */
 .site-nav-inner a.site-nav-logo,
 .site-nav-inner a.site-nav-logo:visited,
 .site-nav-inner a.site-nav-logo:hover,
 .site-nav-inner a.site-nav-logo:focus-visible {
-  color: #ffffff;
-  font-weight: 400;
+  color: #111111;
+  font-weight: 700;
   text-decoration: none;
 }
 
 .site-nav-links a,
 .site-nav-links a:visited {
-  color: #ffffff;
-  font-weight: 800;
+  color: #111111;
+  font-weight: 500;
 }
 
-.site-nav-links a[href^="mailto"]:hover {
-  color: #111111;
+/* Solid/pink nav (scrolled or inner pages) */
+.nav-solid .site-nav-inner a.site-nav-logo,
+.nav-solid .site-nav-inner a.site-nav-logo:visited,
+.nav-solid .site-nav-inner a.site-nav-logo:hover,
+.nav-solid .site-nav-inner a.site-nav-logo:focus-visible {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.nav-solid .site-nav-links a,
+.nav-solid .site-nav-links a:visited {
+  color: #ffffff;
+  font-weight: 800;
 }
 
 @media (min-width: 640px) {
