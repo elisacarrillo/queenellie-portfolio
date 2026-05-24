@@ -16,52 +16,62 @@ export default function Home() {
       {/* Hero */}
       <Hero />
 
-      {/* Geometric doodle strip */}
+      {/* Memphis doodle strip */}
       <div
-        className="w-full overflow-hidden"
-        style={{ height: "72px", backgroundColor: "#111" }}
+        className="w-full overflow-hidden border-b border-[#e0e0e0]"
+        style={{ height: "110px", backgroundColor: "white" }}
         aria-hidden="true"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="100%"
-          height="72"
+          height="110"
           style={{ display: "block" }}
         >
           <defs>
             <pattern
-              id="geo-doodle"
+              id="memphis"
               x="0"
               y="0"
-              width="240"
-              height="72"
+              width="320"
+              height="110"
               patternUnits="userSpaceOnUse"
             >
-              <rect width="240" height="72" fill="#111" />
-              {/* Left-pointing solid triangle */}
-              <polygon points="22,9 22,63 58,36" fill="white" />
-              {/* Spiral */}
-              <path
-                d="M121,36 C121,28 113,20 105,20 C97,20 89,28 89,36 C89,44 97,52 105,52 C117,52 125,42 125,30 C125,19 115,11 103,11"
-                fill="none"
-                stroke="white"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-              {/* Left-pointing solid triangle */}
-              <polygon points="152,9 152,63 188,36" fill="white" />
-              {/* Zigzag */}
-              <path
-                d="M200,18 L212,54 L224,18 L236,54"
-                fill="none"
-                stroke="white"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+              <rect width="320" height="110" fill="white" />
+              {/* Left-pointing triangle outline */}
+              <polygon points="18,16 18,64 55,40" fill="none" stroke="#111" strokeWidth="4" strokeLinejoin="round" />
+              {/* Squiggly wavy line */}
+              <path d="M68,28 C73,16 82,44 89,28 C96,14 105,44 112,28" fill="none" stroke="#111" strokeWidth="4" strokeLinecap="round" />
+              {/* Spiral / @ ring */}
+              <circle cx="142" cy="42" r="20" fill="none" stroke="#111" strokeWidth="4" />
+              <path d="M150,42 A8,8 0 1,1 142,34" fill="none" stroke="#111" strokeWidth="4" strokeLinecap="round" />
+              {/* Triangle outline, rotated */}
+              <g transform="translate(192,40) rotate(15)">
+                <polygon points="-18,-24 -18,24 22,0" fill="none" stroke="#111" strokeWidth="4" strokeLinejoin="round" />
+              </g>
+              {/* Rotated oval */}
+              <ellipse cx="246" cy="36" rx="26" ry="15" fill="none" stroke="#111" strokeWidth="4" transform="rotate(-20,246,36)" />
+              {/* Zigzag / lightning */}
+              <path d="M280,14 L293,38 L278,58 L294,88" fill="none" stroke="#111" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+              {/* Small filled circle */}
+              <circle cx="52" cy="84" r="9" fill="#111" />
+              {/* Half-moon D-shape */}
+              <path d="M88,90 A24,24 0 0,1 88,44" fill="none" stroke="#111" strokeWidth="4" strokeLinecap="round" />
+              {/* Equal sign */}
+              <line x1="126" y1="80" x2="156" y2="80" stroke="#111" strokeWidth="4" strokeLinecap="round" />
+              <line x1="126" y1="96" x2="156" y2="96" stroke="#111" strokeWidth="4" strokeLinecap="round" />
+              {/* Small diamond */}
+              <polygon points="188,76 200,90 188,104 176,90" fill="none" stroke="#111" strokeWidth="4" strokeLinejoin="round" />
+              {/* X cross, rotated */}
+              <g transform="translate(228,86) rotate(20)">
+                <line x1="-12" y1="-12" x2="12" y2="12" stroke="#111" strokeWidth="4" strokeLinecap="round" />
+                <line x1="12" y1="-12" x2="-12" y2="12" stroke="#111" strokeWidth="4" strokeLinecap="round" />
+              </g>
+              {/* S-curve squiggle */}
+              <path d="M254,70 C266,56 278,96 290,78" fill="none" stroke="#111" strokeWidth="4" strokeLinecap="round" />
             </pattern>
           </defs>
-          <rect width="100%" height="72" fill="url(#geo-doodle)" />
+          <rect width="100%" height="110" fill="url(#memphis)" />
         </svg>
       </div>
 
@@ -93,7 +103,7 @@ export default function Home() {
             <div className="flex-1 min-w-0">
               <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-[#fde8f0]">
                 <Image
-                  src="/photo.jpg"
+                  src="/photo.png"
                   alt="Elisa Carrillo"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
