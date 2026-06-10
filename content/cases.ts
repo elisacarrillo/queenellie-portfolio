@@ -8,6 +8,8 @@ export type Case = {
   impactLabel: string;
   summary: string;
   body: string; // swap for MDX later if needed
+  beforeImage?: string;
+  afterImage?: string;
 };
 
 export const cases: Case[] = [
@@ -20,20 +22,22 @@ export const cases: Case[] = [
     impact: "+1.89%",
     impactLabel: "Friend Story View Time",
     summary:
-      "Identified the gap as a user, authored the PRD, scoped technical requirements, and led end-to-end delivery of content resizing for Snap's core viewing framework — shipped to 375M+ users.",
+      "As a Snap user, I noticed a frustrating pattern — and fixed it. Shipped to 375M+ users with a measurable lift in Story view time and Bitmoji sends.",
     body: `
 ## The Problem
 
-I noticed it as a user first: content in Opera, Snap's core viewing framework, wasn't resizing correctly across different device form factors. It was a subtle friction point, but at 375M+ users, subtle adds up fast.
+As a Snap user, I noticed a frustrating pattern: every time I went to reply while watching a Story, playback would pause and additional content would push into the screen, breaking the viewing experience entirely.
 
 ## What I Did
 
-Rather than filing a bug report, I authored a full PRD — defining the problem, scoping the technical requirements, and proposing the solution. I then led end-to-end delivery: from aligning stakeholders to writing the Kotlin implementation on Android.
+I initiated a redesign where playback continues uninterrupted and content resizes above the keyboard instead. After aligning with PMs and designers on my approach, I implemented and tested the change.
 
 ## The Result
 
-Shipped to 375M+ users. Drove +1.89% Friend Story view time and +1.33% Private Story view time. The feature proved that the best specs come from engineers who feel the problem themselves.
++1.89% increase in Friend Story View Time and measurable increases in Bitmoji sends. The feature shipped to 375M+ users and is now in testing on iOS.
     `.trim(),
+    beforeImage: "/opera-before.jpg",
+    afterImage: "/opera-after.jpg",
   },
   {
     slug: "task-switcher-privacy",
@@ -44,67 +48,49 @@ Shipped to 375M+ users. Drove +1.89% Friend Story view time and +1.33% Private S
     impact: "+0.77%",
     impactLabel: "Non-friend Story View Time",
     summary:
-      "Rearchitected Opera's app switcher to surface public Spotlight content while protecting friend and chat feed privacy — a technical and product balance act shipped to 375M+ users.",
+      "Identified a gap in Snap's default privacy policy for the task switcher — and rearchitected it to surface public content previews without compromising private ones. Shipped to 375M+ users.",
     body: `
 ## The Problem
 
-Opera's task switcher was exposing previews of private friend and chat feeds in the Android app switcher — a privacy risk. But simply hiding all previews would kill discoverability for public Spotlight content.
+Snap's default behavior in the task switcher hides all content previews to protect user privacy, a reasonable policy for private content.
+
+But when the content is public, that policy works against the user.
 
 ## What I Did
 
-I rearchitected the app switcher behavior to selectively surface only public Spotlight content previews while fully preserving privacy for friend and chat feeds. This required deep work in Opera's rendering and state management layer.
+I identified the gap and rearchitected the app switcher behavior to selectively surface previews when the source of the playlist content is labeled as public, while preserving the hidden content for friend and chat feeds where privacy still matters.
 
 ## The Result
 
-Shipped to 375M+ users with +0.77% non-friend story view time and +0.45% total content view time. Privacy and engagement, not a tradeoff.
+The change shipped to 375M+ users, driving +0.77% non-friend Story view time and +0.45% total content view time.
     `.trim(),
   },
   {
-    slug: "filter-carousel",
-    title: "Filter Carousel — A/B to Ship",
-    company: "Snap Inc. (Intern)",
-    year: "2024",
-    tags: ["A/B Testing", "TypeScript", "Kotlin", "Experimentation"],
-    impact: "+2.6%",
-    impactLabel: "Filter Engagement",
+    slug: "black-screen-first-frame",
+    title: "Black Screen First Frame Fix",
+    company: "Snap Inc.",
+    year: "2025",
+    tags: ["Android", "Kotlin", "SurfaceView", "TextureView", "Video Rendering"],
+    impact: "In Testing",
+    impactLabel: "Android Content Previews",
     summary:
-      "Built three iterations of a preview carousel, each A/B tested by 6M+ users. Shipped to 375M with a 2.6% lift in filter engagement. Also rewrote filters cross-platform in TypeScript.",
+      "Traced and fixed a black screen bug on Android content previews by capturing a stopframe at position 0. Required going deep on hardware-level differences between SurfaceView and TextureView.",
     body: `
 ## The Problem
 
-Snap's filter carousel wasn't driving enough engagement. Users weren't discovering or using filters at the rate the team expected.
+As a user, swiping through content on Android felt broken. Instead of smooth previews, you'd hit black screens with no indication of what was coming next.
 
 ## What I Did
 
-I built three distinct iterations of the preview carousel UI, designed A/B experiments for each, and ran them against 6M+ users per test. I also implemented a cross-platform TypeScript rewrite of three filters to achieve visual parity between Android and iOS.
+I investigated the root cause and traced it to a missing server-generated first frame: when no first frame existed and the video was at position 0, both SurfaceView and TextureView had nothing to render.
+
+My fix was to capture a stopframe at position 0 and use that as the first frame instead.
+
+Solving this meant going deep on the hardware-level differences between SurfaceView and TextureView, two rendering paths that behave very differently under the hood. It was one of the more technically interesting problems I worked on at Snap.
 
 ## The Result
 
-The winning variant shipped to 375M+ users with a 2.6% increase in filter engagement. Three experiments, one clean winner, zero ambiguity.
-    `.trim(),
-  },
-  {
-    slug: "amazon-pm-pipeline",
-    title: "PM Data Pipeline",
-    company: "Amazon",
-    year: "2023",
-    tags: ["SQL", "Redshift", "QuickSight", "Data"],
-    impact: "2+",
-    impactLabel: "Product Teams Unblocked",
-    summary:
-      "Built a SQL pipeline connecting Amazon's internal query client to Redshift so PMs could surface user behavior from S3 without engineering tickets — reducing time-to-insight for multiple product teams.",
-    body: `
-## The Problem
-
-PMs needed to surface and act on user behavior data stored in S3, but every query required an engineering ticket. The bottleneck was slowing down product decisions across multiple teams.
-
-## What I Did
-
-I built a SQL pipeline connecting Amazon's internal query client directly to Redshift, and designed QuickSight dashboards to visualize Alexa user preferences across diverse categories. PMs could now self-serve their data questions.
-
-## The Result
-
-Reduced time-to-insight for at least 2 product teams. The pipeline turned a recurring engineering dependency into a solved problem.
+The change is currently in testing.
     `.trim(),
   },
 ];

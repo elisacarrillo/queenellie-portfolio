@@ -1,85 +1,86 @@
+import Image from "next/image";
+
+const stats = [
+  { value: "375M+", label: "Users Reached" },
+  { value: "+1.89%", label: "View Time" },
+  { value: "+$40K", label: "Raised" },
+];
+
 export default function Hero() {
-  const bio = [
-    "At Snap, I scoped and built what was missing for over 375 million users, closing gaps I felt every day.",
-    "At Amazon, I built the tool to allow Product Managers to stop guessing and build products that users actually use.",
-    "As a Founder, I discovered that the best features come from living the problem and building something that people actually need.",
-  ];
-
   return (
-    <section className="relative w-full max-w-full flex items-end overflow-hidden bg-[#f0407a]" style={{ height: "85vh" }}>
-      {/* Optional: subtle texture or pattern overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(circle, #fff 1px, transparent 1px)`,
-          backgroundSize: "32px 32px",
-        }}
-      />
+    <section className="relative overflow-hidden bg-[#f0407a] min-h-screen w-screen">
 
-      {/* Big name — white fill with pink stroke, with an offset pink shadow copy
-          for the layered outline look from the Figma */}
+      {/* Desktop: photo absolutely positioned on the left */}
       <div
-        className="relative z-10 w-full max-w-full min-w-0 overflow-hidden px-4 pb-0 sm:px-6"
-
+        className="absolute inset-y-0 left-10 hidden lg:block bg-[#f0407a]"
+        style={{ width: "42%" }}
       >
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-8">
-          {/* Queenellie text */}
-          <div className="relative mb-10">
-            {/* Offset pink "shadow" copy — creates the layered outline feel */}
-            <h1
-              aria-hidden="true"
-              className="leading-[0.88] absolute"
-              style={{
-                fontFamily: "var(--font-queenellie-display), sans-serif",
-                fontSize: "clamp(120px, 22vw, 240px)",
-                fontWeight: 400,
-                letterSpacing: "0.03em",
-                color: "#d83068",
-                transform: "translate(6px, 6px)",
-                WebkitTextStroke: "0",
-                top: 0,
-                left: 0,
-                zIndex: 0,
-              }}
-            >
-              <span style={{ letterSpacing: "0.08em" }}>Q</span>ueenellie
-            </h1>
+        <Image
+          src="/photo_cartoon_1.png?v=5"
+          alt="Elisa Carrillo"
+          fill
+          sizes="42vw"
+          className="object-cover object-top"
+          priority
+        />
+      </div>
 
-            {/* Main white text with pink stroke outline */}
-            <h1
-              className="leading-[0.88] relative"
-              style={{
-                fontFamily: "var(--font-queenellie-display), sans-serif",
-                fontSize: "clamp(120px, 22vw, 240px)",
-                fontWeight: 400,
-                letterSpacing: "0.03em",
-                color: "#ffffff",
-                WebkitTextStroke: "2px #f0407a",
-                zIndex: 1,
-              }}
-            >
-              <span style={{ letterSpacing: "0.08em" }}>Q</span>ueenellie
-            </h1>
-          </div>
+      {/* Mobile: stacked layout */}
+      <div
+        className="flex flex-col lg:block lg:h-full"
+      >
+        {/* Mobile photo — above wordmark, hidden on desktop */}
+        <div className="relative w-2/3 mx-auto lg:hidden" style={{ height: "90vw", maxHeight: "520px" }}>
+          <Image
+            src="/photo_cartoon_1.png?v=5"
+            alt="Elisa Carrillo"
+            fill
+            sizes="100vw"
+            className="object-cover object-top"
+            priority
+          />
+        </div>
 
-          {/* Bio on the right */}
-          <div className="w-full lg:w-auto lg:max-w-[25vw] lg:pr-[6vw]">
-            {bio.map((line, i) => (
-              <p
-                key={i}
-                className="text-[20px] leading-[1.6]"
-                style={{
-                  color: "#ffffff",
-                  fontWeight: 700,
-                  paddingBottom: "24px",
-                  marginBottom: "24px",
-                  borderBottom: i < bio.length - 1 ? "2px solid rgba(255,255,255,0.3)" : "none"
-                }}
-              >
-                {line}
-              </p>
+        {/* Content */}
+        <div
+          className="relative flex flex-col justify-center px-8 lg:px-14 xl:px-20 py-10 lg:py-0 lg:h-screen lg:ml-[42vw]"
+        >
+          {/* Queenellie wordmark */}
+          <h1
+            className="leading-none text-[#111] mb-8 lg:mb-10 text-center"
+            style={{
+              fontFamily: "var(--font-queenellie-display), serif",
+              fontSize: "clamp(60px, 14vw, 200px)",
+              fontWeight: 400,
+            }}
+          >
+            Queenellie
+          </h1>
+
+          {/* Stats */}
+          <div className="flex flex-wrap justify-center gap-8 lg:gap-12 mb-8 lg:mb-10">
+            {stats.map((s) => (
+              <div key={s.label} className="text-center">
+                <div
+                  className="font-inter font-extrabold text-[#111] leading-tight tracking-tight"
+                  style={{ fontSize: "clamp(1.5rem, 3.2vw, 2.6rem)" }}
+                >
+                  {s.value}
+                </div>
+                <div className="font-inter text-[13px] font-normal text-[#222] mt-1 tracking-wide uppercase">
+                  {s.label}
+                </div>
+              </div>
             ))}
           </div>
+
+          {/* Tagline */}
+          <p
+            className="text-[#111] leading-relaxed max-w-[520px] text-center lg:text-right mx-auto lg:ml-auto lg:mr-12 mt-8 lg:mt-16 italic"
+            style={{ fontFamily: "var(--font-fraunces), serif", fontWeight: 300, fontSize: "clamp(1rem, 2.2vw, 1.8rem)" }}
+          >
+            building products that spark joy, invoke creativity, and empower community
+          </p>
         </div>
       </div>
     </section>

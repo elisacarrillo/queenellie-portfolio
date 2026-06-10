@@ -20,7 +20,7 @@ export default function CaseCard({ c, index }: { c: Case; index: number }) {
 
       {/* Body */}
       <div className="min-w-0">
-        <h3 className="font-syne font-bold text-[1.15rem] leading-tight tracking-tight mb-2">
+        <h3 className="font-fraunces font-bold text-[1.15rem] leading-tight tracking-tight mb-2">
           {c.title}
         </h3>
         <p className="text-[12px] text-[#777] leading-relaxed mb-3 max-w-[520px]">

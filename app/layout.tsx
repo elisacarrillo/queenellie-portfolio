@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Great_Vibes, Syne, Inter } from "next/font/google";
+import { Manufacturing_Consent, Syne, Inter, Fraunces } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -10,8 +10,8 @@ const syne = Syne({
   variable: "--font-syne",
 });
 
-/** Hero "Queenellie" wordmark — Bold elegant script */
-const queenellieDisplay = Great_Vibes({
+/** Hero "Queenellie" wordmark — Gothic blackletter */
+const queenellieDisplay = Manufacturing_Consent({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-queenellie-display",
@@ -21,6 +21,13 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-inter",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
 });
 
 export const metadata: Metadata = {
@@ -50,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${inter.variable} ${queenellieDisplay.variable}`}
+      className={`${syne.variable} ${inter.variable} ${queenellieDisplay.variable} ${fraunces.variable}`}
     >
       <body className="bg-[#f5f5f5] text-[#111] font-inter antialiased">
         <Nav />

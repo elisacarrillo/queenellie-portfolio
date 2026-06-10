@@ -1,18 +1,20 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { cases, getCaseBySlug } from "@/content/cases";
 import type { Metadata } from "next";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
   return cases.map((c) => ({ slug: c.slug }));
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const c = getCaseBySlug(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const c = getCaseBySlug(slug);
   if (!c) return {};
   return {
     title: `${c.title} — Queenellie`,
@@ -20,8 +22,9 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function CaseStudyPage({ params }: Props) {
-  const c = getCaseBySlug(params.slug);
+export default async function CaseStudyPage({ params }: Props) {
+  const { slug } = await params;
+  const c = getCaseBySlug(slug);
   if (!c) notFound();
 
   return (
@@ -40,7 +43,7 @@ export default function CaseStudyPage({ params }: Props) {
         <p className="text-[11px] uppercase tracking-widest text-[#f0407a] mb-2">
           {c.company} · {c.year}
         </p>
-        <h1 className="font-syne font-extrabold text-[2rem] leading-tight tracking-tight mb-4">
+        <h1 className="font-fraunces font-extrabold text-[2rem] leading-tight tracking-tight mb-4">
           {c.title}
         </h1>
         <p className="text-[14px] text-[#666] leading-relaxed mb-6">
@@ -72,6 +75,38 @@ export default function CaseStudyPage({ params }: Props) {
 
       <hr className="border-[#eee] mb-10" />
 
+      {/* Before / After */}
+      {c.beforeImage && c.afterImage && (
+        <div className="mb-12">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <p className="text-[10px] uppercase tracking-widest text-[#bbb] mb-3">Before</p>
+              <div className="relative w-full overflow-hidden rounded-lg border border-[#eee]">
+                <Image
+                  src={c.beforeImage}
+                  alt="Before"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-widest text-[#bbb] mb-3">After</p>
+              <div className="relative w-full overflow-hidden rounded-lg border border-[#eee]">
+                <Image
+                  src={c.afterImage}
+                  alt="After"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Body — rendered as simple paragraphs */}
       {/* Swap this out for an MDX renderer when you're ready */}
       <div className="prose prose-sm max-w-none text-[#444] leading-relaxed">
@@ -80,7 +115,7 @@ export default function CaseStudyPage({ params }: Props) {
             return (
               <h2
                 key={i}
-                className="font-syne font-bold text-[1.2rem] text-[#111] mt-8 mb-3"
+                className="font-fraunces font-bold text-[1.2rem] text-[#111] mt-8 mb-3"
               >
                 {block.replace("## ", "")}
               </h2>
@@ -107,7 +142,7 @@ export default function CaseStudyPage({ params }: Props) {
               href={`/work/${next.slug}`}
               className="group flex items-center justify-between hover:text-[#f0407a] transition-colors"
             >
-              <span className="font-syne font-bold text-[1.1rem]">
+              <span className="font-fraunces font-bold text-[1.1rem]">
                 {next.title}
               </span>
               <span className="text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">

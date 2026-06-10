@@ -23,7 +23,7 @@ main {
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-syne), sans-serif;
+  font-family: var(--font-fraunces), serif;
 }
 
 /* Custom font utilities */
@@ -33,6 +33,10 @@ h1, h2, h3, h4 {
 
 @utility font-inter {
   font-family: var(--font-inter), sans-serif;
+}
+
+@utility font-fraunces {
+  font-family: var(--font-fraunces), serif;
 }
 
 @utility font-queenellie-display {
@@ -91,19 +95,28 @@ h1, h2, h3, h4 {
 .site-nav-inner a.site-nav-logo:visited,
 .site-nav-inner a.site-nav-logo:hover,
 .site-nav-inner a.site-nav-logo:focus-visible {
-  color: #ffffff;
-  font-weight: 400;
+  color: #111111;
+  font-weight: 800;
   text-decoration: none;
 }
 
 .site-nav-links a,
 .site-nav-links a:visited {
-  color: #ffffff;
+  color: #111111;
   font-weight: 800;
 }
 
-.site-nav-links a[href^="mailto"]:hover {
-  color: #111111;
+.site-nav-links a:hover {
+  color: inherit;
+}
+
+.site-nav-links .nav-cta,
+.site-nav-links .nav-cta:visited {
+  color: #f0407a;
+}
+
+.site-nav-links .nav-cta:hover {
+  color: #ffffff;
 }
 
 @media (min-width: 640px) {

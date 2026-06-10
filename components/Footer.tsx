@@ -3,8 +3,7 @@ import Link from "next/link";
 const workLinks = [
   { href: "/work/opera-resizing", label: "Opera Resizing" },
   { href: "/work/task-switcher-privacy", label: "Task Switcher" },
-  { href: "/work/filter-carousel", label: "Filter Carousel" },
-  { href: "/work/amazon-pm-pipeline", label: "Amazon Pipeline" },
+  { href: "/work/black-screen-first-frame", label: "Black Screen Fix" },
 ];
 
 const takesLinks = [
@@ -38,19 +37,24 @@ export default function Footer() {
           <div className="flex gap-2">
             {[
               {
+                href: "https://facebook.com/elisacarrillo",
+                label: "Facebook",
+                path: "M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z",
+              },
+              {
                 href: "https://linkedin.com/in/elisacarrillo",
                 label: "LinkedIn",
                 path: "M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 4m-2 0a2 2 0 1 0 4 0a2 2 0 1 0-4 0",
               },
               {
-                href: "https://github.com/elisacarrillo",
-                label: "GitHub",
-                path: "M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22",
+                href: "https://youtube.com/@queenellie",
+                label: "YouTube",
+                path: "M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58a2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z M9.75 15.02l5.75-3.02-5.75-3.02v6.04z",
               },
               {
-                href: "mailto:elisacarrillo873@gmail.com",
-                label: "Email",
-                path: "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z M22 6l-10 7L2 6",
+                href: "https://instagram.com/queenellie",
+                label: "Instagram",
+                path: "M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z M17.5 6.5h.01 M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5z",
               },
             ].map((s) => (
               <a
