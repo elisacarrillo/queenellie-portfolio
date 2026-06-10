@@ -48,9 +48,11 @@ export default function WorkPage() {
         </div>
       </div>
 
-      {cases.map((c, i) => (
-        <CaseCard key={c.slug} c={c} index={i} />
-      ))}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-10">
+        {cases.map((c, i) => (
+          <CaseCard key={c.slug} c={c} index={i} />
+        ))}
+      </div>
 
       {/* In the Wild */}
       <div className="mt-20 border-t border-[#eee] pt-12">

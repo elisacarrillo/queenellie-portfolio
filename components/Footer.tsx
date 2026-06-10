@@ -20,8 +20,8 @@ const connectLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-[#eee] px-4 py-10 sm:px-8">
-      <div className="mx-auto grid max-w-6xl min-w-0 grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="bg-white border-t border-[#eee] px-4 sm:px-8 py-16">
+      <div className="mx-auto grid max-w-6xl min-w-0 grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 w-full">
 
         {/* Brand */}
         <div>

@@ -7,8 +7,20 @@ const stats = [
 ];
 
 export default function Hero() {
+
   return (
-    <section className="relative overflow-hidden bg-[#f0407a] min-h-screen w-screen">
+    <section
+      id="hero"
+      className="relative overflow-hidden bg-[#f0407a]"
+      style={{
+        minHeight: "100dvh",
+        width: "100dvw",
+        marginTop: "calc(-1 * env(safe-area-inset-top))",
+        paddingTop: "env(safe-area-inset-top)",
+        marginBottom: "calc(-1 * env(safe-area-inset-bottom))",
+        paddingBottom: "env(safe-area-inset-bottom)",
+      }}
+    >
 
       {/* Desktop: photo absolutely positioned on the left */}
       <div
@@ -27,7 +39,7 @@ export default function Hero() {
 
       {/* Mobile: stacked layout */}
       <div
-        className="flex flex-col h-screen lg:block lg:h-full"
+        className="flex flex-col lg:block lg:h-full" style={{ minHeight: "100dvh" }}
       >
         {/* Mobile photo — above wordmark, hidden on desktop */}
         <div className="relative w-2/3 mx-auto lg:hidden -mb-8 mt-8" style={{ height: "90vw", maxHeight: "520px" }}>
@@ -43,7 +55,7 @@ export default function Hero() {
 
         {/* Content */}
         <div
-          className="relative flex flex-col justify-center px-8 lg:px-14 xl:px-20 py-10 lg:py-0 lg:h-screen lg:ml-[42vw]"
+          className="relative flex flex-col flex-1 justify-center px-8 lg:px-14 xl:px-20 py-10 lg:py-0 lg:h-screen lg:ml-[42vw]"
         >
           {/* Queenellie wordmark */}
           <h1

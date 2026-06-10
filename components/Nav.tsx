@@ -32,6 +32,7 @@ export default function Nav() {
     >
       <nav
         className="site-nav-inner relative mx-auto w-full max-w-6xl py-4 sm:pl-6"
+        style={{ paddingTop: "max(1rem, env(safe-area-inset-top))" }}
         aria-label="Main navigation"
       >
         <Link

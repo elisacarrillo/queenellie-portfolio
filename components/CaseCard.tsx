@@ -5,53 +5,62 @@ export default function CaseCard({ c, index }: { c: Case; index: number }) {
   return (
     <Link
       href={`/work/${c.slug}`}
-      className="group relative grid min-w-0 w-full max-w-full grid-cols-1 gap-4 border-b border-[#eee] py-8 transition-all duration-200 hover:bg-white hover:px-2 sm:hover:px-4 md:grid-cols-[minmax(0,48px)_minmax(0,1fr)_minmax(0,120px)] md:gap-8"
+      className="group flex flex-col justify-between rounded-xl border border-[#eee] bg-white p-6 transition-all duration-200 hover:shadow-md hover:border-[#f0407a]/30"
     >
-      {/* Hover accent bar */}
-      <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#f0407a] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
+      {/* Top row: index + arrow */}
+      <div className="flex items-start justify-between mb-4">
+        <span className="font-syne italic text-[#ddd] text-[1.4rem] leading-none">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <svg
+          className="w-4 h-4 text-[#ccc] group-hover:text-[#f0407a] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M3 13L13 3M13 3H6M13 3V10" />
+        </svg>
+      </div>
 
-      {/* Index */}
-      <span
-        className="font-syne italic text-[#ddd] leading-none pt-1"
-        style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)" }}
-      >
-        {String(index + 1).padStart(2, "0")}
-      </span>
-
-      {/* Body */}
-      <div className="min-w-0">
-        <h3 className="font-fraunces font-bold text-[1.15rem] leading-tight tracking-tight mb-2">
+      {/* Title + summary */}
+      <div className="flex-1 mb-5">
+        <p className="text-[10px] uppercase tracking-widest text-[#bbb] mb-1">
+          {c.company} · {c.year}
+        </p>
+        <h3 className="font-fraunces font-bold text-[1.05rem] leading-snug tracking-tight mb-3">
           {c.title}
         </h3>
-        <p className="text-[12px] text-[#777] leading-relaxed mb-3 max-w-[520px]">
+        <p className="text-[12px] text-[#777] leading-relaxed">
           {c.summary}
         </p>
-        <div className="flex gap-2 flex-wrap">
-          {c.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[10px] uppercase tracking-wide px-2 py-1 border border-[#eee] bg-[#f9f9f9] rounded-sm"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
       </div>
 
       {/* Impact */}
-      <div className="flex min-w-0 flex-col items-end justify-between">
-        <div className="text-right">
-          <div className="font-syne font-extrabold text-[#f0407a] leading-none tracking-tight"
-            style={{ fontSize: "clamp(1.2rem, 2.5vw, 1.6rem)" }}>
-            {c.impact}
-          </div>
-          <div className="text-[10px] text-[#aaa] uppercase tracking-wide mt-1">
-            {c.impactLabel}
-          </div>
+      <div className="mb-4">
+        <div
+          className="font-syne font-extrabold text-[#f0407a] leading-none tracking-tight"
+          style={{ fontSize: "1.4rem" }}
+        >
+          {c.impact}
         </div>
-        <span className="text-[#ccc] text-xl group-hover:text-[#f0407a] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-200">
-          ↗
-        </span>
+        <div className="text-[10px] text-[#aaa] uppercase tracking-wide mt-1">
+          {c.impactLabel}
+        </div>
+      </div>
+
+      {/* Tags */}
+      <div className="flex gap-2 flex-wrap">
+        {c.tags.map((tag) => (
+          <span
+            key={tag}
+            className="text-[10px] uppercase tracking-wide px-2 py-1 border border-[#eee] bg-[#f9f9f9] rounded-sm"
+          >
+            {tag}
+          </span>
+        ))}
       </div>
     </Link>
   );

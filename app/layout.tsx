@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manufacturing_Consent, Syne, Inter, Fraunces } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -29,6 +29,10 @@ const fraunces = Fraunces({
   style: ["normal", "italic"],
   variable: "--font-fraunces",
 });
+
+export const viewport: Viewport = {
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   title: "Queenellie — Portfolio",
