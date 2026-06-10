@@ -27,7 +27,7 @@ export default function Hero() {
 
       {/* Mobile: stacked layout */}
       <div
-        className="flex flex-col lg:block lg:h-full"
+        className="flex flex-col h-screen lg:block lg:h-full"
       >
         {/* Mobile photo — above wordmark, hidden on desktop */}
         <div className="relative w-2/3 mx-auto lg:hidden -mb-8 mt-8" style={{ height: "90vw", maxHeight: "520px" }}>
