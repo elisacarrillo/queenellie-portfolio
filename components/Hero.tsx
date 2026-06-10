@@ -30,7 +30,7 @@ export default function Hero() {
         className="flex flex-col lg:block lg:h-full"
       >
         {/* Mobile photo — above wordmark, hidden on desktop */}
-        <div className="relative w-2/3 mx-auto lg:hidden" style={{ height: "90vw", maxHeight: "520px" }}>
+        <div className="relative w-2/3 mx-auto lg:hidden -mb-8 mt-8" style={{ height: "90vw", maxHeight: "520px" }}>
           <Image
             src="/photo_cartoon_1.png?v=5"
             alt="Elisa Carrillo"
