@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Manufacturing_Consent, Syne, Inter, Fraunces } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -67,6 +68,7 @@ export default function RootLayout({
         <Nav />
         <main className="min-w-0">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
