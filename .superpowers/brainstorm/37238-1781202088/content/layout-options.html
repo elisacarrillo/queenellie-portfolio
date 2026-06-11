@@ -1,0 +1,369 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;600;800&display=swap');
+
+  .preview-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .option-label {
+    font-family: Inter, sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f0407a;
+    margin-bottom: 6px;
+  }
+
+  .option-desc {
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 12px;
+  }
+
+  .mock-page {
+    border: 1.5px solid #e8e8e8;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    font-family: Inter, sans-serif;
+  }
+
+  .mock-topbar {
+    background: #f0407a;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: white;
+    font-family: Inter, sans-serif;
+  }
+
+  .mock-body {
+    padding: 24px 20px;
+  }
+
+  .mock-page-header {
+    margin-bottom: 20px;
+  }
+
+  .mock-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #bbb;
+    margin-bottom: 4px;
+    font-family: Inter, sans-serif;
+  }
+
+  .mock-h1 {
+    font-family: Fraunces, Georgia, serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #111;
+    margin: 0;
+  }
+
+  /* Layout A: Card Grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .project-card {
+    border: 1.5px solid #ebebeb;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .card-img {
+    background: linear-gradient(135deg, #f8f8f8, #ebebeb);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #ccc;
+    font-family: Inter, sans-serif;
+  }
+
+  .card-content {
+    padding: 10px 12px 12px;
+  }
+
+  .card-tags {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: #f5f5f5;
+    color: #666;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: Inter, sans-serif;
+  }
+
+  .tag.cat {
+    background: #fff0f5;
+    color: #f0407a;
+  }
+
+  .card-name {
+    font-family: Fraunces, Georgia, serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #111;
+    margin: 0 0 4px;
+  }
+
+  .card-desc {
+    font-size: 10px;
+    color: #888;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Layout B: List feed */
+  .list-feed {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .list-item {
+    border-top: 1.5px solid #ebebeb;
+    padding: 14px 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .list-item:last-child {
+    border-bottom: 1.5px solid #ebebeb;
+  }
+
+  .list-meta {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 4px;
+    align-items: center;
+  }
+
+  .list-name {
+    font-family: Fraunces, Georgia, serif;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 500;
+    color: #111;
+    margin: 0 0 4px;
+  }
+
+  .list-desc {
+    font-size: 10px;
+    color: #888;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .list-arrow {
+    font-size: 14px;
+    color: #ccc;
+    margin-top: 2px;
+  }
+
+  /* Layout C: Bento/feature */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
+  }
+
+  .bento-card {
+    border: 1.5px solid #ebebeb;
+    border-radius: 8px;
+    padding: 14px;
+    position: relative;
+  }
+
+  .bento-card.featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 160px;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .bento-img {
+    background: linear-gradient(135deg, #fff0f5, #ffd6e7);
+    border-radius: 6px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #f0407a;
+    font-family: Inter, sans-serif;
+  }
+
+  .bento-name {
+    font-family: Fraunces, Georgia, serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #111;
+    margin: 0 0 4px;
+  }
+
+  .bento-desc {
+    font-size: 10px;
+    color: #888;
+    line-height: 1.5;
+    margin: 0 0 8px;
+  }
+
+  .bento-link {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #f0407a;
+    font-family: Inter, sans-serif;
+  }
+</style>
+
+<h2>Which layout feels right for "cool things i built"?</h2>
+<p class="subtitle">All three match your existing site aesthetic. Pick what resonates.</p>
+
+<div class="preview-wrap">
+
+  <!-- Option A -->
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Card Grid</h3>
+      <p>Visual, scannable. Each project gets a card with optional screenshot preview. Works great as the collection grows — auto-reflows into more rows.</p>
+      <div class="mock-page" style="margin-top:10px">
+        <div class="mock-topbar"><span>Elisa Carrillo</span><span>work · takes · built · lets talk</span></div>
+        <div class="mock-body">
+          <div class="mock-page-header">
+            <div class="mock-eyebrow">Side Projects & Tools</div>
+            <div class="mock-h1">Cool things I built</div>
+          </div>
+          <div class="card-grid">
+            <div class="project-card">
+              <div class="card-img">screenshot</div>
+              <div class="card-content">
+                <div class="card-tags"><span class="tag cat">website</span><span class="tag">Next.js</span><span class="tag">TypeScript</span></div>
+                <div class="card-name">grind.lc</div>
+                <div class="card-desc">Master algorithms one pattern at a time. Built because...</div>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="card-img" style="background: linear-gradient(135deg, #f5f5f5, #e8e8e8);">no screenshot</div>
+              <div class="card-content">
+                <div class="card-tags"><span class="tag cat">skill</span><span class="tag">Claude Code</span></div>
+                <div class="card-name">golden-rule-verification</div>
+                <div class="card-desc">A skill that enforces verifying at the actual running app...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>List Feed</h3>
+      <p>Matches the rhythm of your /takes page. Clean, text-forward, scales well. Best when write-ups are the star — no screenshots needed.</p>
+      <div class="mock-page" style="margin-top:10px">
+        <div class="mock-topbar"><span>Elisa Carrillo</span><span>work · takes · built · lets talk</span></div>
+        <div class="mock-body">
+          <div class="mock-page-header">
+            <div class="mock-eyebrow">Side Projects & Tools</div>
+            <div class="mock-h1">Cool things I built</div>
+          </div>
+          <div class="list-feed">
+            <div class="list-item">
+              <div>
+                <div class="list-meta">
+                  <span class="tag cat">website</span>
+                  <span class="tag">Next.js</span><span class="tag">TypeScript</span>
+                </div>
+                <div class="list-name">grind.lc</div>
+                <div class="list-desc">Master algorithms one pattern at a time. Built because the pattern-based approach clicked for me and I wanted to share it.</div>
+              </div>
+              <div class="list-arrow">↗</div>
+            </div>
+            <div class="list-item">
+              <div>
+                <div class="list-meta">
+                  <span class="tag cat">skill</span>
+                  <span class="tag">Claude Code</span>
+                </div>
+                <div class="list-name">golden-rule-verification</div>
+                <div class="list-desc">A Claude Code skill that enforces verifying behavior at the actual running app surface before calling a task done.</div>
+              </div>
+              <div class="list-arrow">↗</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option C -->
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Bento / Feature Grid</h3>
+      <p>More playful. First item gets a wider "featured" slot, rest fill in a grid. Good for highlighting your favorite or most polished project.</p>
+      <div class="mock-page" style="margin-top:10px">
+        <div class="mock-topbar"><span>Elisa Carrillo</span><span>work · takes · built · lets talk</span></div>
+        <div class="mock-body">
+          <div class="mock-page-header">
+            <div class="mock-eyebrow">Side Projects & Tools</div>
+            <div class="mock-h1">Cool things I built</div>
+          </div>
+          <div class="bento-grid">
+            <div class="bento-card featured">
+              <div>
+                <div class="card-tags" style="margin-bottom:6px"><span class="tag cat">website</span><span class="tag">Next.js</span><span class="tag">TypeScript</span></div>
+                <div class="bento-name">grind.lc</div>
+                <div class="bento-desc">Master algorithms one pattern at a time. Built because the pattern-based approach clicked for me and I wanted to share it with others grinding interviews.</div>
+                <div class="bento-link">Visit site ↗</div>
+              </div>
+              <div class="bento-img">screenshot</div>
+            </div>
+            <div class="bento-card">
+              <div class="card-tags" style="margin-bottom:6px"><span class="tag cat">skill</span><span class="tag">Claude Code</span></div>
+              <div class="bento-name">golden-rule-verification</div>
+              <div class="bento-desc">Enforces verifying at the running app surface.</div>
+              <div class="bento-link" style="margin-top:8px">View on GitHub ↗</div>
+            </div>
+            <div class="bento-card" style="background:#fafafa;display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:10px;color:#ccc;font-family:Inter,sans-serif;">more coming soon</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
