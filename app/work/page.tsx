@@ -37,7 +37,7 @@ export default function WorkPage() {
   return (
     <div className="mx-auto min-w-0 max-w-6xl px-4 pb-20 pt-24 sm:px-8">
       {/* Case Studies */}
-      <div className="mb-0 flex min-w-0 flex-wrap items-baseline justify-between gap-4 border-b border-[#eee] py-8">
+      <div className="mb-0 flex min-w-0 flex-wrap items-baseline justify-between gap-4 py-8">
         <div className="min-w-0">
           <p className="text-[10px] uppercase tracking-widest text-[#bbb] mb-1">
             All Projects
@@ -55,7 +55,7 @@ export default function WorkPage() {
       </div>
 
       {/* In the Wild */}
-      <div className="mt-20 border-t border-[#eee] pt-12">
+      <div className="mt-8 border-t border-[#eee] pt-12">
         <p className="text-[10px] uppercase tracking-widest text-[#bbb] mb-1">
           Beyond the Job
         </p>

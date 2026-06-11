@@ -1,62 +1,44 @@
 import Link from "next/link";
 import type { Case } from "@/content/cases";
 
-export default function CaseCard({ c, index }: { c: Case; index: number }) {
+export default function CaseCard({ c, index: _index }: { c: Case; index: number }) {
   return (
     <Link
       href={`/work/${c.slug}`}
-      className="group flex flex-col justify-between rounded-xl border border-[#eee] bg-white p-6 transition-all duration-200 hover:shadow-md hover:border-[#f0407a]/30"
+      className="group flex flex-col bg-white rounded-xl border-l-[3px] border-[#f0407a] p-6 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
     >
-      {/* Top row: index + arrow */}
-      <div className="flex items-start justify-between mb-4">
-        <span className="font-syne italic text-[#ddd] text-[1.4rem] leading-none">
-          {String(index + 1).padStart(2, "0")}
-        </span>
-        <svg
-          className="w-4 h-4 text-[#ccc] group-hover:text-[#f0407a] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
-          viewBox="0 0 16 16"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M3 13L13 3M13 3H6M13 3V10" />
-        </svg>
+      {/* Impact stat — Inter extrabold, matches hero stats */}
+      <div
+        className="font-inter font-extrabold text-[#f0407a] leading-none tracking-tight"
+        style={{ fontSize: c.impact.length > 6 ? "1.3rem" : "2rem" }}
+      >
+        {c.impact}
       </div>
+      <p className="text-[9px] uppercase tracking-widest text-[#bbb] mt-1 mb-4">
+        {c.impactLabel}
+      </p>
 
-      {/* Title + summary */}
-      <div className="flex-1 mb-5">
-        <p className="text-[10px] uppercase tracking-widest text-[#bbb] mb-1">
-          {c.company} · {c.year}
-        </p>
-        <h3 className="font-fraunces font-bold text-[1.05rem] leading-snug tracking-tight mb-3">
-          {c.title}
-        </h3>
-        <p className="text-[12px] text-[#777] leading-relaxed">
-          {c.summary}
-        </p>
-      </div>
+      {/* Meta */}
+      <p className="text-[9px] uppercase tracking-widest text-[#ccc] mb-1">
+        {c.company} · {c.year}
+      </p>
 
-      {/* Impact */}
-      <div className="mb-4">
-        <div
-          className="font-syne font-extrabold text-[#f0407a] leading-none tracking-tight"
-          style={{ fontSize: "1.4rem" }}
-        >
-          {c.impact}
-        </div>
-        <div className="text-[10px] text-[#aaa] uppercase tracking-wide mt-1">
-          {c.impactLabel}
-        </div>
-      </div>
+      {/* Title — Fraunces upright weight 500 */}
+      <h3 className="font-fraunces font-medium text-[1rem] leading-snug tracking-tight text-[#111] mb-3 flex-1">
+        {c.title}
+      </h3>
+
+      {/* Summary */}
+      <p className="text-[12px] text-[#888] leading-relaxed mb-4">
+        {c.summary}
+      </p>
 
       {/* Tags */}
       <div className="flex gap-2 flex-wrap">
         {c.tags.map((tag) => (
           <span
             key={tag}
-            className="text-[10px] uppercase tracking-wide px-2 py-1 border border-[#eee] bg-[#f9f9f9] rounded-sm"
+            className="text-[9px] uppercase tracking-wide px-2 py-1 bg-[#f5f5f5] text-[#aaa] rounded-sm"
           >
             {tag}
           </span>

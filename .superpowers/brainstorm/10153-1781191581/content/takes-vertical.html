@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Takes Page — Vertical Layouts</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f5f5f5; font-family: 'Inter', sans-serif; color: #111; padding: 2rem; }
+
+  .label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; color: #f0407a; margin-bottom: 1.5rem; display: block; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; max-width: 1100px; margin: 0 auto; }
+  @media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
+
+  .option-wrap { cursor: pointer; border: 2px solid transparent; border-radius: 12px; padding: 1.5rem; background: white; transition: border-color .15s; }
+  .option-wrap:hover { border-color: #f0407a33; }
+  .option-wrap.selected { border-color: #f0407a; }
+  .option-letter { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; color: #ccc; margin-bottom: 1rem; }
+
+  /* Shared page header */
+  .page-eyebrow { font-family: 'Inter', sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: .15em; color: #bbb; margin-bottom: .35rem; }
+  .page-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.6rem; letter-spacing: -.02em; color: #111; margin-bottom: 1.5rem; }
+
+  /* A: Feed cards */
+  .feed-item { background: #fafafa; border-left: 3px solid #f0407a; border-radius: 0 8px 8px 0; padding: .9rem 1.1rem; margin-bottom: .6rem; }
+  .feed-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: .9rem; color: #111; margin-bottom: .35rem; }
+  .feed-body { font-family: 'Inter', sans-serif; font-size: .72rem; color: #666; line-height: 1.6; margin-bottom: .4rem; }
+  .feed-date { font-family: 'Inter', sans-serif; font-size: 9px; text-transform: uppercase; letter-spacing: .1em; color: #ccc; }
+
+  /* B: Minimal ruled list */
+  .ruled-item { padding: .9rem 0; border-bottom: 1px solid #ebebeb; }
+  .ruled-item:first-of-type { border-top: 1px solid #ebebeb; }
+  .ruled-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: .9rem; color: #111; margin-bottom: .3rem; }
+  .ruled-body { font-family: 'Inter', sans-serif; font-size: .72rem; color: #777; line-height: 1.55; margin-bottom: .35rem; }
+  .ruled-date { font-family: 'Inter', sans-serif; font-size: 9px; text-transform: uppercase; letter-spacing: .1em; color: #ccc; }
+
+  /* C: Big editorial */
+  .ed-item { padding: 1.1rem 0; border-bottom: 1px solid #ebebeb; }
+  .ed-item:first-of-type { border-top: 1px solid #ebebeb; }
+  .ed-date { font-family: 'Inter', sans-serif; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; color: #f0407a; margin-bottom: .3rem; }
+  .ed-title { font-family: 'Fraunces', serif; font-weight: 500; font-style: italic; font-size: 1.1rem; color: #111; line-height: 1.2; margin-bottom: .45rem; }
+  .ed-body { font-family: 'Inter', sans-serif; font-size: .72rem; color: #666; line-height: 1.6; }
+
+  .pick-label { text-align: center; font-family: 'Inter', sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: .15em; color: #aaa; margin-top: 2rem; }
+</style>
+<script>
+  function pick(el) {
+    document.querySelectorAll('.option-wrap').forEach(w => w.classList.remove('selected'));
+    el.classList.add('selected');
+    const choice = el.dataset.choice;
+    fetch('/event', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ type:'click', choice, text: el.querySelector('.option-letter').textContent, timestamp: Date.now() }) }).catch(()=>{});
+  }
+</script>
+</head>
+<body>
+
+<div style="max-width:1100px; margin:0 auto;">
+  <span class="label">Takes — pick a vertical layout</span>
+
+  <div class="split">
+
+    <!-- A: Feed Cards -->
+    <div class="option-wrap" data-choice="a" onclick="pick(this)">
+      <div class="option-letter">A — Feed Cards</div>
+      <div class="page-eyebrow">Hot Takes</div>
+      <div class="page-title">Takes</div>
+
+      <div class="feed-item">
+        <div class="feed-title">CSS-in-JS was never the problem</div>
+        <div class="feed-body">We confused styling tools with architecture decisions. CSS-in-JS was a symptom, not the cause.</div>
+        <div class="feed-date">Jun 2025</div>
+      </div>
+      <div class="feed-item">
+        <div class="feed-title">PMs who can't code ship slower</div>
+        <div class="feed-body">Not because they're less smart — the feedback loop is broken. Every translation layer adds latency.</div>
+        <div class="feed-date">May 2025</div>
+      </div>
+      <div class="feed-item">
+        <div class="feed-title">Metrics are a lagging indicator of taste</div>
+        <div class="feed-body">By the time the data shows your product is boring, your best users have already left.</div>
+        <div class="feed-date">Apr 2025</div>
+      </div>
+    </div>
+
+    <!-- B: Ruled List -->
+    <div class="option-wrap" data-choice="b" onclick="pick(this)">
+      <div class="option-letter">B — Ruled List</div>
+      <div class="page-eyebrow">Hot Takes</div>
+      <div class="page-title">Takes</div>
+
+      <div class="ruled-item">
+        <div class="ruled-title">CSS-in-JS was never the problem</div>
+        <div class="ruled-body">We confused styling tools with architecture decisions. CSS-in-JS was a symptom, not the cause.</div>
+        <div class="ruled-date">Jun 2025</div>
+      </div>
+      <div class="ruled-item">
+        <div class="ruled-title">PMs who can't code ship slower</div>
+        <div class="ruled-body">Not because they're less smart — the feedback loop is broken. Every translation layer adds latency.</div>
+        <div class="ruled-date">May 2025</div>
+      </div>
+      <div class="ruled-item">
+        <div class="ruled-title">Metrics are a lagging indicator of taste</div>
+        <div class="ruled-body">By the time data shows your product is boring, your best users are gone.</div>
+        <div class="ruled-date">Apr 2025</div>
+      </div>
+    </div>
+
+    <!-- C: Editorial -->
+    <div class="option-wrap" data-choice="c" onclick="pick(this)">
+      <div class="option-letter">C — Editorial</div>
+      <div class="page-eyebrow">Hot Takes</div>
+      <div class="page-title">Takes</div>
+
+      <div class="ed-item">
+        <div class="ed-date">Jun 2025</div>
+        <div class="ed-title">CSS-in-JS was never the problem</div>
+        <div class="ed-body">We confused styling tools with architecture decisions. CSS-in-JS was a symptom, not the cause.</div>
+      </div>
+      <div class="ed-item">
+        <div class="ed-date">May 2025</div>
+        <div class="ed-title">PMs who can't code ship slower</div>
+        <div class="ed-body">Not because they're less smart — the feedback loop is broken. Every translation layer adds latency.</div>
+      </div>
+      <div class="ed-item">
+        <div class="ed-date">Apr 2025</div>
+        <div class="ed-title">Metrics are a lagging indicator of taste</div>
+        <div class="ed-body">By the time data shows your product is boring, your best users are gone.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="pick-label">Click a column to select it</p>
+</div>
+
+</body>
+</html>

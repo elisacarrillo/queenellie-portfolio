@@ -37,7 +37,7 @@ export default function Nav() {
       >
         <Link
           href="/"
-          className="site-nav-logo block min-w-0 max-w-full truncate text-left font-fraunces no-underline transition-colors hover:no-underline sm:text-[15px]"
+          className="site-nav-logo block min-w-0 max-w-full truncate text-left font-inter no-underline transition-colors hover:no-underline sm:text-[15px]"
         >
           Elisa Carrillo
         </Link>
@@ -65,7 +65,7 @@ export default function Nav() {
               href="mailto:elisacarrillo873@gmail.com"
               className="nav-cta inline-flex items-center whitespace-nowrap rounded-md bg-[#111] px-3 py-2 text-[13px] font-extrabold transition-colors hover:bg-[#f0407a] sm:px-4 sm:py-2.5 sm:text-[15px]"
             >
-              lets talk :)
+              lets talk
             </Link>
           </li>
         </ul>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work Page Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Fraunces:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f5f5f5;
+    font-family: 'Inter', sans-serif;
+    color: #111;
+    min-height: 100vh;
+  }
+
+  /* Nav strip */
+  .nav {
+    background: #f5f5f5;
+    padding: .9rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .nav-logo { font-family: 'Inter', sans-serif; font-weight: 800; font-size: .85rem; letter-spacing: -.01em; }
+  .nav-links { display: flex; gap: 1.5rem; }
+  .nav-links span { font-family: 'Inter', sans-serif; font-weight: 700; font-size: .75rem; color: #111; }
+  .nav-links .cta { color: #f0407a; }
+
+  /* Page */
+  .page { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+
+  /* Header */
+  .page-header { margin-bottom: 2.5rem; }
+  .page-eyebrow { font-family: 'Inter', sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: .15em; color: #bbb; margin-bottom: .4rem; }
+  .page-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 2.2rem; letter-spacing: -.02em; color: #111; }
+
+  /* Cards grid */
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 5rem; }
+
+  .case-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    border-left: 3px solid #f0407a;
+    cursor: pointer;
+    transition: box-shadow .15s ease, transform .15s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+  .case-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.07); transform: translateY(-2px); }
+
+  .case-impact { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 2rem; color: #f0407a; line-height: 1; margin-bottom: .2rem; letter-spacing: -.02em; }
+  .case-impact-label { font-family: 'Inter', sans-serif; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; color: #bbb; margin-bottom: 1.1rem; }
+  .case-meta { font-family: 'Inter', sans-serif; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; color: #ccc; margin-bottom: .35rem; }
+  .case-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1rem; color: #111; line-height: 1.4; flex: 1; margin-bottom: .9rem; }
+  .case-summary { font-family: 'Inter', sans-serif; font-size: .72rem; color: #888; line-height: 1.55; margin-bottom: 1rem; }
+  .case-tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: auto; }
+  .case-tag { font-family: 'Inter', sans-serif; font-size: 9px; text-transform: uppercase; letter-spacing: .08em; padding: .2rem .55rem; background: #f5f5f5; color: #aaa; border-radius: 3px; }
+
+  /* In the wild section */
+  .section-divider { border-top: 1px solid #e8e8e8; padding-top: 2.5rem; }
+  .section-eyebrow { font-family: 'Inter', sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: .15em; color: #bbb; margin-bottom: .4rem; }
+  .section-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.8rem; letter-spacing: -.02em; color: #111; margin-bottom: 2rem; }
+
+  .wild-row { display: flex; gap: 2.5rem; align-items: flex-start; margin-bottom: 2.5rem; }
+  .wild-img { width: 38%; flex-shrink: 0; aspect-ratio: 4/3; background: #e0e0e0; border-radius: 8px; }
+  .wild-body {}
+  .wild-org-label { font-family: 'Inter', sans-serif; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; color: #f0407a; margin-bottom: .3rem; }
+  .wild-org { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.2rem; color: #111; margin-bottom: .6rem; }
+  .wild-text { font-family: 'Inter', sans-serif; font-size: .78rem; color: #666; line-height: 1.7; }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <span class="nav-logo">Queenellie</span>
+  <div class="nav-links">
+    <span>Work</span>
+    <span>About</span>
+    <span class="cta">Contact ↗</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="page-header">
+    <p class="page-eyebrow">All Projects</p>
+    <h1 class="page-title">The Work</h1>
+  </div>
+
+  <div class="grid">
+
+    <a class="case-card">
+      <div class="case-impact">+1.89%</div>
+      <div class="case-impact-label">Friend Story View Time</div>
+      <div class="case-meta">Snap Inc. · 2025</div>
+      <div class="case-title">Opera Resizing — Snap Content Framework</div>
+      <div class="case-summary">As a Snap user, I noticed a frustrating pattern — and fixed it. Shipped to 375M+ users with a measurable lift in Story view time.</div>
+      <div class="case-tags"><span class="case-tag">PRD</span><span class="case-tag">Android</span><span class="case-tag">Kotlin</span><span class="case-tag">A/B Testing</span></div>
+    </a>
+
+    <a class="case-card">
+      <div class="case-impact">+0.77%</div>
+      <div class="case-impact-label">Non-friend Story View Time</div>
+      <div class="case-meta">Snap Inc. · 2025</div>
+      <div class="case-title">Task Switcher Privacy Redesign</div>
+      <div class="case-summary">Identified a gap in Snap's default privacy policy for the task switcher and rearchitected it to surface public content previews. Shipped to 375M+ users.</div>
+      <div class="case-tags"><span class="case-tag">Privacy</span><span class="case-tag">Architecture</span><span class="case-tag">Android</span></div>
+    </a>
+
+    <a class="case-card">
+      <div class="case-impact" style="font-size:1.3rem; padding-top:.35rem">In Testing</div>
+      <div class="case-impact-label">Android Content Previews</div>
+      <div class="case-meta">Snap Inc. · 2025</div>
+      <div class="case-title">Black Screen First Frame Fix</div>
+      <div class="case-summary">Traced and fixed a black screen bug on Android content previews by capturing a stopframe at position 0. Required going deep on SurfaceView vs TextureView.</div>
+      <div class="case-tags"><span class="case-tag">Android</span><span class="case-tag">Kotlin</span><span class="case-tag">Video Rendering</span></div>
+    </a>
+
+  </div>
+
+  <div class="section-divider">
+    <p class="section-eyebrow">Beyond the Job</p>
+    <h2 class="section-title">In the Wild</h2>
+
+    <div class="wild-row">
+      <div class="wild-img"></div>
+      <div class="wild-body">
+        <p class="wild-org-label">Black, Indigenous, Latino in Tech</p>
+        <h3 class="wild-org">B[U]ILT</h3>
+        <p class="wild-text">When I found B[U]ILT, it was five people and an idea. By the time I left, it was 70+ members, 100+ events a year, $20K+ in sponsorship...</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

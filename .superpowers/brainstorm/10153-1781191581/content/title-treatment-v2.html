@@ -1,0 +1,78 @@
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  .card-demo {
+    background: white;
+    border-radius: 12px;
+    padding: 1.4rem 1.4rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    border-left: 3px solid #f0407a;
+    max-width: 240px;
+  }
+  /* Impact number now matches hero: Inter extrabold */
+  .impact { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 2rem; color: #f0407a; line-height: 1; margin-bottom: .2rem; letter-spacing: -.02em; }
+  .impact-label { font-family: 'Inter', sans-serif; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; color: #aaa; margin-bottom: 1rem; }
+  .meta { font-family: 'Inter', sans-serif; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; color: #bbb; margin-bottom: .3rem; }
+  .tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .9rem; }
+  .tag { font-family: 'Inter', sans-serif; font-size: 9px; text-transform: uppercase; letter-spacing: .08em; padding: .2rem .5rem; background: #f5f5f5; color: #999; border-radius: 3px; }
+
+  .title-a { font-family: 'Fraunces', serif; font-weight: 400; font-style: italic; font-size: 1rem; color: #111; line-height: 1.35; }
+  .title-b { font-family: 'Fraunces', serif; font-weight: 500; font-style: normal; font-size: 1rem; color: #111; line-height: 1.35; }
+  .title-c { font-family: 'Syne', sans-serif; font-weight: 700; font-size: .9rem; color: #111; line-height: 1.3; letter-spacing: -.01em; }
+</style>
+
+<h2>Title Font Treatment</h2>
+<p class="subtitle">Impact number is now Inter extrabold — same as the hero stats. Pick the title style.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f5f5f5; padding:1.5rem; display:flex; justify-content:center;">
+      <div class="card-demo">
+        <div class="impact">+1.89%</div>
+        <div class="impact-label">Friend Story View Time</div>
+        <div class="meta">Snap Inc. · 2025</div>
+        <div class="title-a">Opera Resizing — Snap Content Framework</div>
+        <div class="tags"><span class="tag">Android</span><span class="tag">PRD</span><span class="tag">A/B Testing</span></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Fraunces Italic</h3>
+      <p>Soft, editorial, feminine. Contrasts the bold pink stat.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f5f5f5; padding:1.5rem; display:flex; justify-content:center;">
+      <div class="card-demo">
+        <div class="impact">+1.89%</div>
+        <div class="impact-label">Friend Story View Time</div>
+        <div class="meta">Snap Inc. · 2025</div>
+        <div class="title-b">Opera Resizing — Snap Content Framework</div>
+        <div class="tags"><span class="tag">Android</span><span class="tag">PRD</span><span class="tag">A/B Testing</span></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Fraunces Upright</h3>
+      <p>Confident, structured. Warm serif without the lean.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f5f5f5; padding:1.5rem; display:flex; justify-content:center;">
+      <div class="card-demo">
+        <div class="impact">+1.89%</div>
+        <div class="impact-label">Friend Story View Time</div>
+        <div class="meta">Snap Inc. · 2025</div>
+        <div class="title-c">Opera Resizing — Snap Content Framework</div>
+        <div class="tags"><span class="tag">Android</span><span class="tag">PRD</span><span class="tag">A/B Testing</span></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Syne Bold</h3>
+      <p>Geometric and punchy — leans more dashboard than portfolio.</p>
+    </div>
+  </div>
+
+</div>
