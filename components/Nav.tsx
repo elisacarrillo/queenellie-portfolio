@@ -62,7 +62,7 @@ export default function Nav() {
           ))}
           <li className="shrink-0">
             <Link
-              href="mailto:elisacarrillo873@gmail.com"
+              href="/lets-talk"
               className="nav-cta inline-flex items-center whitespace-nowrap rounded-md bg-[#111] px-3 py-2 text-[13px] font-extrabold transition-colors hover:bg-[#f0407a] sm:px-4 sm:py-2.5 sm:text-[15px]"
             >
               lets talk
