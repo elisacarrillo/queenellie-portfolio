@@ -64,7 +64,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
         {/* Impact callout */}
         <div className="border-l-4 border-[#f0407a] pl-5 py-2">
-          <div className="font-syne font-extrabold text-[2.5rem] text-[#f0407a] leading-none">
+          <div className="font-inter font-extrabold text-[2.5rem] text-[#f0407a] leading-none">
             {c.impact}
           </div>
           <div className="text-[11px] text-[#aaa] uppercase tracking-wide mt-1">
