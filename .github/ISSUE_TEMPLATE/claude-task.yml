@@ -1,0 +1,39 @@
+name: Claude Task
+description: Assign a task to Claude for implementation
+title: "[claude] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Mention `@claude` in the **What to build** field or in a comment to trigger pickup.
+        Claude checks for new mentions every 15 minutes.
+
+  - type: textarea
+    id: what-to-build
+    attributes:
+      label: What to build
+      description: Describe what you want implemented. Be specific about files, pages, or behavior.
+      placeholder: "e.g. Add a hover state to the case cards that shows the full summary text"
+    validations:
+      required: true
+
+  - type: textarea
+    id: golden-rule
+    attributes:
+      label: Golden Rule
+      description: |
+        The specific, observable thing that must be true when this is done.
+        ✅ Good: "Hovering a card on /work reveals the full summary in a tooltip"
+        ❌ Bad: "Cards should look better on hover"
+      placeholder: "Visiting ___ shows/does ___"
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context (optional)
+      description: Relevant files, constraints, prior decisions, or anything Claude should know.
+    validations:
+      required: false
