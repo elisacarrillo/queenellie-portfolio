@@ -9,7 +9,7 @@ export default async function TakesPage() {
   const takes = await getTakes();
 
   return (
-    <div className="mx-auto min-w-0 max-w-2xl px-4 pb-20 pt-24 sm:px-8">
+    <div className="mx-auto min-w-0 max-w-2xl px-4 pb-20 pt-24 sm:px-8 min-h-screen">
       <div className="mb-10">
         <p className="text-[10px] uppercase tracking-widest text-[#bbb] mb-1">
           Hot Takes
