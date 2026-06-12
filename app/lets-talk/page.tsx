@@ -25,7 +25,7 @@ const contacts = [
 
 export default function LetsTalkPage() {
   return (
-    <div className="mx-auto min-w-0 max-w-6xl px-4 pb-20 pt-24 sm:px-8">
+    <div className="mx-auto min-w-0 max-w-6xl px-4 pb-20 pt-24 sm:px-8 min-h-screen">
       {/* Page header */}
       <div className="mb-12 border-b border-[#eee] py-8">
         <p className="mb-1 text-[10px] uppercase tracking-widest text-[#bbb]">
