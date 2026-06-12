@@ -44,12 +44,19 @@ export default function LetsTalkPage() {
             About Me
           </p>
           <p className="text-[15px] leading-relaxed text-[#555]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            lacinia odio vitae vestibulum. Donec in efficitur leo, in commodo
-            orci. Morbi porttitor, purus vitae consequat ultrices, mi tortor
-            elementum justo, vel venenatis dui ipsum et nisl. Quisque imperdiet
-            blandit augue in tincidunt. Nulla facilisi. Sed a faucibus nunc. In
-            et eros auctor, tincidunt eros nec, fermentum ligula.
+            I&rsquo;m Elisa, a software engineer who believes the best products
+            are the ones that feel inevitable, built with enough care and craft
+            that it feels like they couldn&rsquo;t have existed any other way.
+            I&rsquo;ve spent my career building at scale (most recently at Snap)
+            while staying connected to the human side of the work: the users,
+            the community, the story behind the product.
+          </p>
+          <p className="mt-4 text-[15px] leading-relaxed text-[#555]">
+            I founded Hot Girls Code, founded CAE through UIUC&rsquo;s iVenture
+            Accelerator, and spent years leading B[U]ILT advocating for
+            underrepresented students in tech. Building community and building
+            software feel like the same act to me: both are about creating space
+            where people can thrive.
           </p>
         </div>
 
